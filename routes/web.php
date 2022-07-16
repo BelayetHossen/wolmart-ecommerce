@@ -148,7 +148,7 @@ Route::group(['middleware' => 'admin'], function () {
 | User authentication route
 |--------------------------------------------------------------------------
 */
-Route::get('admin-login', [AdminLoginController::class, 'adminLoginPage'])->name('admin.login.view');
+Route::get('admin-login', [AdminLoginController::class, 'adminLoginPage'])->name('admin.login.view')->middleware('logedin.admin');
 Route::get('admin', [AdminLoginController::class, 'adminLoginRedirect']);
 Route::post('admin-login', [AdminLoginController::class, 'adminLoginSystem'])->name('admin.login.system');
 Route::get('admin-logout', [AdminLoginController::class, 'adminLogout'])->name('admin.logout.system');
