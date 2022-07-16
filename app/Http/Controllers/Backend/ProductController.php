@@ -69,34 +69,34 @@ class ProductController extends Controller
             }
         }
 
-        return $gallery;
 
 
 
 
-        // $title_check = Product::where('title', $request->title)->first();
 
-        // if (!empty($title_check)) {
-        //     return [
-        //         'title_check' => 'exist'
-        //     ];
-        // } else {
-        //     Product::create([
-        //         'title'                 =>      $request->title,
-        //         'slug'                  =>      Str::slug($request->title),
-        //         'cat_1'                 =>      $request->main_cat_id,
-        //         'cat_2'                 =>      $request->second_cat_id,
-        //         'cat_3'                 =>      $request->third_cat_id,
-        //         'brand'                 =>      $request->product_brand,
-        //         'short_desc'            =>      $request->short_desc,
-        //         'long_desc'             =>      $request->long_desc,
-        //         'price'                 =>      $request->price,
-        //         'sell_price'            =>      $request->sell_price,
-        //         'featured'              =>      $request->featured,
-        //         'hot'                   =>      json_encode($request->hot),
-        //         'image'                 =>      'jjjj',
-        //     ]);
-        // }
+        $title_check = Product::where('title', $request->title)->first();
+
+        if (!empty($title_check)) {
+            return [
+                'title_check' => 'exist'
+            ];
+        } else {
+            Product::create([
+                'title'                 =>      $request->title,
+                'slug'                  =>      Str::slug($request->title),
+                'cat_1'                 =>      $request->main_cat_id,
+                'cat_2'                 =>      $request->second_cat_id,
+                'cat_3'                 =>      $request->third_cat_id,
+                'brand'                 =>      $request->product_brand,
+                'short_desc'            =>      $request->short_desc,
+                'long_desc'             =>      $request->long_desc,
+                'price'                 =>      $request->price,
+                'sell_price'            =>      $request->sell_price,
+                'featured'              =>      $request->featured,
+                'hot'                   =>      json_encode($request->hot),
+                'image'                 =>      json_encode($gallery),
+            ]);
+        }
     }
 
 
