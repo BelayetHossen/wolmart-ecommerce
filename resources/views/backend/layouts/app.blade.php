@@ -170,7 +170,7 @@
     <script src="{{ asset('') }}backend/js/default-assets/sweetalert-init.js"></script>
     <script src="{{ asset('') }}backend/js/default-assets/sweetalert.min.js"></script>
 
-
+    
 
 
     <script src="{{ asset('') }}backend/vendors/datatable/js/jquery.dataTables.min.js"></script>

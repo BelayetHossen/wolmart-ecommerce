@@ -42,6 +42,8 @@ integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="ano
 <link rel="stylesheet" href="{{ asset('') }}backend/css/style1.css" />
 <link rel="stylesheet" href="{{ asset('') }}backend/css/colors/default.css" id="colorSkinCSS">
 
+
+
 <script src="{{ asset('backend/ckeditor/ckeditor.js') }}"></script>
 
 

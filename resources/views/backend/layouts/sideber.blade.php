@@ -79,7 +79,7 @@ $permission = json_decode(Auth::guard('siteuser')->user()->role->permission);
                     </div>
                 </a>
                 <ul>
-                    <li><a href="{{ route('product.index') }}">Product</a></li>
+                    <li><a href="{{ route('product.index') }}">All Products</a></li>
                     <li><a href="{{ route('add.product') }}">Add new Product</a></li>
                     <li><a href="{{ route('product-category.index') }}">Categories</a></li>
                     <li><a href="{{ route('brand.page.load') }}">Brand</a></li>

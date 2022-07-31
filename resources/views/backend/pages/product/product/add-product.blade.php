@@ -78,28 +78,29 @@
                                         $(document).ready(function() {
 
                                             $(".image-file").on("change", function(e) {
-                                                var file = e.target.files,
+                                                let file = e.target.files,
                                                     imagefiles = $(".image-file")[0].files;
-                                                var i = 0;
+                                                let i = 0;
                                                 $.each(imagefiles, function(index, value) {
-                                                    var f = file[i];
-                                                    var fileReader = new FileReader();
+                                                    let f = file[i];
+                                                    let fileReader = new FileReader();
                                                     fileReader.onload = (function(e) {
 
-                                                        $('<div class="pip col-sm-3 col-4 boxDiv" align="center" style="margin-bottom: 20px;">' +
-                                                            '<img style="width: 120px; height: 100px;" src="' + e
-                                                            .target.result + '" class="prescriptions">' +
-                                                            '<p style="word-break: break-all;">' + value.name +
-                                                            '</p>' +
-                                                            '<p class="cross-image remove">Remove</p>' +
-                                                            '<input type="hidden" name="photos[]" value="' + e.target
-                                                            .result + '">' +
-                                                            '<input type="hidden" name="photoName[]" value="' +
-                                                            value.name + '">' +
-                                                            '</div>').insertAfter("#selected-images");
+                                                        $(`
+                                                        <div class="col-md-2 my-2">
+                                                        <img style="width: 100%" src="${e
+                                                            .target.result}" alt="">
+
+                                                            <a href="#" class="btn btn-danger btn-sm old_photo_remove" style="margin-left: 8px; margin-top: 10px;">Remove</a>
+                                                            <input type="hidden" name="photos[]" value="${value.name}">
+
+                                                        </div>
+                                                        `).insertAfter("#selected-images");
                                                         $(".remove").click(function() {
                                                             $(this).parent(".pip").remove();
                                                         });
+
+                                                       
                                                     });
                                                     fileReader.readAsDataURL(f);
                                                     i++;
@@ -108,24 +109,7 @@
                                         });
                                     </script>
 
-                                    {{-- <script>
-                                        $('document').ready(function(e) {
-                                            $('.add').click(function(e) {
-                                                var imageDiv = $(".boxDiv").length;
-                                                if (imageDiv == '') {
-                                                    alert('Please upload image'); // Check here image selected or not
-                                                    return false;
-                                                } else if (imageDiv > 5) {
-                                                    alert(
-                                                        'You can upload only 5 images'); //You can select only 5 images at a time to upload
-                                                    return false;
-                                                } else if (imageDiv != '' && imageDiv <
-                                                    6) { // image should not be blank or not greater than 5
-                                                    $("#upload_image").submit();
-                                                }
-                                            });
-                                        });
-                                    </script> --}}
+                                   
 
 
 
@@ -161,7 +145,7 @@
 
                                     <div class="form-group mb-3">
                                         <label for="main_cat_id">Main category</label>
-                                        <select id="main_cat_select" name="main_cat_id" class="form-control">
+                                        <select name="main_cat_id" class="form-control main_cat_select">
                                             <option value="">-Select a main category-</option>
                                             @foreach ($cats_1 as $cat)
                                                 <option value="{{ $cat->id }}">{{ $cat->name }}</option>

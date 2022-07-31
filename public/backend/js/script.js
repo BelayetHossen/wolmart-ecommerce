@@ -2158,7 +2158,59 @@
                 */
 
 
+        // product table to data table
+        $('#products_table').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: {
+                url: 'all-products',
 
+            },
+            columns: [
+                {
+                    data: 'sl',
+                    name: 'sl'
+                },
+                {
+                    data: 'title',
+                    name: 'title'
+                },
+                {
+                    data: 'category',
+                    name: 'category'
+                },
+                {
+                    data: '2nd_cat',
+                    name: '2nd_cat'
+                },
+                {
+                    data: '3rd_cat',
+                    name: '3rd_cat'
+                },
+                {
+                    data: 'status',
+                    name: 'status'
+                },
+                {
+                    data: 'action',
+                    name: 'action'
+                },
+
+
+            ]
+        });
+
+
+
+
+        // product edit
+        // $(document).on('click', '.product_edit_btn', function (e) {
+        //     e.preventDefault();
+        //     let id = $(this).attr('product_edit_id');
+        //     $.ajax({
+        //         url: 'product-edit/' + id,
+        //     });
+        // });
 
 
 

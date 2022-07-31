@@ -663,6 +663,7 @@ class ProductCategoryController extends Controller
             $second_cat_list .= '<option value="' . $cat->id . '">' . $cat->name . '</option>';
         }
         return $second_cat_list;
+        
     }
 
 

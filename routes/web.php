@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ProductTagController;
 use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Frontend\HomeController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -135,9 +136,13 @@ Route::group(['middleware' => 'admin'], function () {
     | Product Routes
     |--------------------------------------------------------------------------
     */
-    Route::get('product', [ProductController::class, 'index'])->name('product.index');
+    Route::get('products', [ProductController::class, 'index'])->name('product.index');
+    Route::get('all-products', [ProductController::class, 'allProducts']);
     Route::get('add-product', [ProductController::class, 'addProduct'])->name('add.product');
     Route::post('product-store', [ProductController::class, 'store'])->name('product.store');
+    Route::get('/product-edit/{id}', [ProductController::class, 'productEditPage'])->name('product.edit.page');
+    //Route::get('/product-edit/{id}', [ProductController::class, 'productEditImage']);
+    Route::put('/product-update/{id}', [ProductController::class, 'productUpdate'])->name('product.update');
 });
 
 
@@ -145,10 +150,40 @@ Route::group(['middleware' => 'admin'], function () {
 
 /*
 |--------------------------------------------------------------------------
-| User authentication route
+| User authentication routes
 |--------------------------------------------------------------------------
 */
 Route::get('admin-login', [AdminLoginController::class, 'adminLoginPage'])->name('admin.login.view')->middleware('logedin.admin');
 Route::get('admin', [AdminLoginController::class, 'adminLoginRedirect']);
 Route::post('admin-login', [AdminLoginController::class, 'adminLoginSystem'])->name('admin.login.system');
 Route::get('admin-logout', [AdminLoginController::class, 'adminLogout'])->name('admin.logout.system');
+
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| frontend routes
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/product', [HomeController::class, 'singleProduct'])->name('single.product');
+Route::get('/shop', [HomeController::class, 'shopPage'])->name('shop.page');
+Route::get('/category', [HomeController::class, 'categoryPage'])->name('category.page');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//

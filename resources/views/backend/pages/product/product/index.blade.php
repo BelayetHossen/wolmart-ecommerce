@@ -24,15 +24,15 @@
                     </div>
 
                     <div class="table-responsive">
-                        <table id="product_table"
+                        <table id="products_table"
                             class="table table-striped dt-responsive nowrap w-100 dataTable no-footer dtr-inline">
                             <thead class="" style="background: #182444;">
                                 <tr>
-                                    <th scope="col">SL</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Role</th>
-                                    <th scope="col">Phone</th>
-                                    <th scope="col">Photo</th>
+                                    <th>SL</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">2nd category</th>
+                                    <th scope="col">3rd category</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Action</th>
                                 </tr>

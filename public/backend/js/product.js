@@ -15,15 +15,17 @@
 
 
 
+
         // category select
-        $(document).on('change', '#main_cat_select', function (e) {
+        $(document).on('change', '.main_cat_select', function (e) {
             e.preventDefault();
             let main_cat_id = $(this).val();
 
             $.ajax({
-                url: 'product-categorysecond-select/' + main_cat_id,
+                url: '/product-categorysecond-select/' + main_cat_id,
                 success: function (data) {
                     $('.second_cat_select').html(data);
+
                 }
             })
         })
@@ -33,14 +35,14 @@
             let second_cat_id = $(this).val();
 
             $.ajax({
-                url: 'product-categoryThird-select/' + second_cat_id,
+                url: '/product-categoryThird-select/' + second_cat_id,
                 success: function (data) {
                     $('.third_cat_select').html(data);
                 }
             })
         })
 
-        // Hot deals
+        // add product  Hot deals
         const hot_deals_checkbox = document.getElementById('hot_deals_checkbox')
         const hot_deals_date = `<div class="card" style="">
                                     <div class="card-body">
@@ -64,6 +66,8 @@
                 $('#hot_deals_date').html('');
             }
         })
+
+
 
 
 
@@ -109,7 +113,7 @@
                     contentType: false,
                     processData: false,
                     success: function (data) {
-                        console.log(data);
+
                         if (data.title_check == 'exist') {
                             $('.title-check-msg').html(fieldRequre('Product title is already exist !', 'danger', '-15px'));
                         } else {
@@ -136,6 +140,33 @@
 
 
         })
+
+
+
+        $(document).on('click', '.old_photo_remove', function (e) {
+            e.preventDefault();
+
+            this.parentElement.remove();
+
+        })
+
+
+
+        //product edit
+        // function oldImg() {
+        //     $.ajax({
+        //         url: 'product-edit/',
+        //         success: function (data) {
+        //             console.log(data);
+        //         }
+
+        //     });
+        // }
+
+        // $(document).on('click', '.product_edit_btn', function () {
+        //     alert();
+        // })
+
 
 
 
